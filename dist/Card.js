@@ -208,9 +208,6 @@ var Action = (0, _radium2['default'])(_react2['default'].createClass({
   }
 }));
 
-exports.Card = Card;
-exports.Title = Title;
-exports.Text = Text;
-exports.Menu = Menu;
-exports.Action = Action;
+//export {Card, Title, Text, Menu, Action};
 exports['default'] = { Card: Card, Title: Title, Text: Text, Menu: Menu, Action: Action };
+module.exports = exports['default'];

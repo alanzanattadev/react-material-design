@@ -181,5 +181,5 @@ var Action = Radium(React.createClass({
   }
 }));
 
-export {Card, Title, Text, Menu, Action};
+//export {Card, Title, Text, Menu, Action};
 export default {Card: Card, Title: Title, Text:Text, Menu:Menu, Action:Action};
