@@ -45,7 +45,7 @@ var NavigationLayout = React.createClass({
             {this.props["header-icon"]
             ?
               [<div className="mdl-layout-spacer" key="spacer-1"></div>,
-              <img key="img-1" src={this.props["header-icon"]} style={this.props["header-icon-style"]}/>,
+              <img key="img-1" src={this.props["header-icon"]} style={this.props["header-icon-style"]} onClick={this.props["header-icon-onClick"]}/>,
               <div key="spacer-2" className="mdl-layout-spacer"></div>]
             :
               [<span key="title-1" className="mdl-layout-title">{this.props["header-title"]}</span>,
