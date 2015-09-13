@@ -62,7 +62,7 @@ var NavigationLayout = _react2['default'].createClass({
         _react2['default'].createElement(
           'div',
           { className: 'mdl-layout__header-row' },
-          this.props["header-icon"] ? [_react2['default'].createElement('div', { className: 'mdl-layout-spacer', key: 'spacer-1' }), _react2['default'].createElement('img', { key: 'img-1', src: this.props["header-icon"], style: this.props["header-icon-style"] }), _react2['default'].createElement('div', { key: 'spacer-2', className: 'mdl-layout-spacer' })] : [_react2['default'].createElement(
+          this.props["header-icon"] ? [_react2['default'].createElement('div', { className: 'mdl-layout-spacer', key: 'spacer-1' }), _react2['default'].createElement('img', { key: 'img-1', src: this.props["header-icon"], style: this.props["header-icon-style"], onClick: this.props["header-icon-onClick"] }), _react2['default'].createElement('div', { key: 'spacer-2', className: 'mdl-layout-spacer' })] : [_react2['default'].createElement(
             'span',
             { key: 'title-1', className: 'mdl-layout-title' },
             this.props["header-title"]
