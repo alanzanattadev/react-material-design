@@ -1,7 +1,7 @@
 import React from 'react';
 import Router, {Route} from 'react-router';
 import App from './App';
-import {Spinner, ProgressBar, TextField} from "../../lib";
+import {Spinner, ProgressBar, TextField, BottomBar} from "../../lib";
 
 class SpinnerPage extends React.Component {
   render() {
@@ -34,11 +34,22 @@ class ProgressBarPage extends React.Component {
   }
 }
 
+class BottomBarPage extends React.Component {
+  render() {
+    return (
+      <div>
+        <BottomBar/>
+      </div>
+    );
+  }
+}
+
 var routes = (
   <Route handler={App} path="/">
     <Route handler={SpinnerPage} path="spinner"/>
     <Route handler={ProgressBarPage} path="progress"/>
     <Route handler={TextField} path="textfield"/>
+    <Route handler={BottomBarPage} path="bottombar"/>
   </Route>
 );
 

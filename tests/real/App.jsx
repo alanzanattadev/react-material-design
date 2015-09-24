@@ -20,7 +20,8 @@ var App = React.createClass({
                           drawer-title="Test" drawer-links={[
                             {name: "progress", href:"#/progress"},
                             {name: "textfield", href:"#/textfield"},
-                            {name: "spinner", href: "#/spinner"}
+                            {name: "spinner", href: "#/spinner"},
+                            {name: "bottombar", href: "#/bottombar"}
                           ]}>
           <FlexLayout primary="center" secondary="center" vertical height="80%">
             <RouteHandler/>

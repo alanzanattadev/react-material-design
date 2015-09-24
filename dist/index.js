@@ -62,6 +62,10 @@ var _addonsToastManager = require('./addons/ToastManager');
 
 var _addonsToastManager2 = _interopRequireDefault(_addonsToastManager);
 
+var _styles = require('./styles');
+
+var _styles2 = _interopRequireDefault(_styles);
+
 exports.Button = _Button2['default'];
 exports.Card = _Card2['default'];
 exports.NavigationLayout = _NavigationLayout2['default'];
@@ -76,3 +80,4 @@ exports.ToastContainer = _addonsToastContainer2['default'];
 exports.ToastManager = _addonsToastManager2['default'];
 exports.Radio = _Radio2['default'];
 exports.ProgressBar = _ProgressBar2['default'];
+exports.Styles = _styles2['default'];
