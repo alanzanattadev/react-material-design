@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react/addons';
 import Router, {Route} from 'react-router';
 import App from './App';
-import {Spinner, ProgressBar, TextField, BottomBar} from "../../lib";
+import {Spinner, ProgressBar, TextField, BottomBar, Button} from "../../lib";
 
 class SpinnerPage extends React.Component {
   render() {
@@ -34,15 +34,33 @@ class ProgressBarPage extends React.Component {
   }
 }
 
-class BottomBarPage extends React.Component {
-  render() {
+var BottomBarPage = React.createClass({
+  getInitialState: function() {
+    return {
+      visible: false,
+      loading: false
+    };
+  },
+  toggleVisible: function() {
+    this.setState(React.addons.update(this.state, {
+      visible: {$set: !this.state.visible}
+    }));
+  },
+  toggleLoading: function() {
+    this.setState(React.addons.update(this.state, {
+      loading: {$set: !this.state.loading}
+    }));
+  },
+  render: function() {
     return (
       <div>
-        <BottomBar/>
+        <Button onClick={this.toggleVisible} text="show"/>
+        <Button onClick={this.toggleLoading} text="load"/>
+        <BottomBar loading={this.state.loading} visible={this.state.visible}/>
       </div>
     );
   }
-}
+});
 
 var routes = (
   <Route handler={App} path="/">

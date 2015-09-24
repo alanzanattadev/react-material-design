@@ -31,7 +31,6 @@ var ProgressBar = _react2['default'].createClass({
     this.setProgress();
   },
   componentDidUpdate: function componentDidUpdate() {
-    console.log("salut");
     this.setProgress();
   },
   componentWillUnmount: function componentWillUnmount() {

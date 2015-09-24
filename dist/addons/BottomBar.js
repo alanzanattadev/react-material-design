@@ -48,7 +48,7 @@ var BottomBar = _react2['default'].createClass({
     var styles = {
       bottombar: {
         height: this.props.height || "100px",
-        position: "absolute",
+        position: "fixed",
         left: "0",
         bottom: "-100",
         width: "100%",
@@ -65,8 +65,7 @@ var BottomBar = _react2['default'].createClass({
         right: "25",
         transition: "1s" + " " + _styles2['default'].Animations.Curve,
         transitionDelay: "0.25s",
-        transform: !this.props.visible && "translate3d(0, 200px, 0)",
-        transform: this.props.visible && "translate3d(0, 0, 0)"
+        transform: !this.props.visible && "translate3d(0, 200px, 0)"
       }
     };
     return _react2['default'].createElement(

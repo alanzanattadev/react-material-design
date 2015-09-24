@@ -16,7 +16,6 @@ var ProgressBar = React.createClass({
     this.setProgress();
   },
   componentDidUpdate: function() {
-    console.log("salut");
     this.setProgress();
   },
   componentWillUnmount: function() {

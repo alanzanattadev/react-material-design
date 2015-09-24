@@ -25,7 +25,7 @@ var BottomBar = React.createClass({
     var styles = {
       bottombar: {
         height: this.props.height || "100px",
-        position: "absolute",
+        position: "fixed",
         left: "0",
         bottom: "-100",
         width: "100%",
@@ -43,7 +43,6 @@ var BottomBar = React.createClass({
         transition: "1s" + " " + Styles.Animations.Curve,
         transitionDelay: "0.25s",
         transform: !this.props.visible && "translate3d(0, 200px, 0)",
-        transform: this.props.visible && "translate3d(0, 0, 0)",
       }
     };
     return (
