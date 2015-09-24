@@ -26,6 +26,14 @@ var _Radio = require('./Radio');
 
 var _Radio2 = _interopRequireDefault(_Radio);
 
+var _Spinner = require('./Spinner');
+
+var _Spinner2 = _interopRequireDefault(_Spinner);
+
+var _ProgressBar = require('./ProgressBar');
+
+var _ProgressBar2 = _interopRequireDefault(_ProgressBar);
+
 var _addonsAlert = require('./addons/Alert');
 
 var _addonsAlert2 = _interopRequireDefault(_addonsAlert);
@@ -42,10 +50,6 @@ var _addonsDialogContainer = require('./addons/DialogContainer');
 
 var _addonsDialogContainer2 = _interopRequireDefault(_addonsDialogContainer);
 
-var _addonsSpinner = require('./addons/Spinner');
-
-var _addonsSpinner2 = _interopRequireDefault(_addonsSpinner);
-
 var _addonsToast = require('./addons/Toast');
 
 var _addonsToast2 = _interopRequireDefault(_addonsToast);
@@ -54,9 +58,9 @@ var _addonsToastContainer = require('./addons/ToastContainer');
 
 var _addonsToastContainer2 = _interopRequireDefault(_addonsToastContainer);
 
-var _addonsToastManagerJs = require('./addons/ToastManager.js');
+var _addonsToastManager = require('./addons/ToastManager');
 
-var _addonsToastManagerJs2 = _interopRequireDefault(_addonsToastManagerJs);
+var _addonsToastManager2 = _interopRequireDefault(_addonsToastManager);
 
 exports.Button = _Button2['default'];
 exports.Card = _Card2['default'];
@@ -66,8 +70,9 @@ exports.Alert = _addonsAlert2['default'];
 exports.AlertManager = _addonsAlertManagerJs2['default'];
 exports.BottomBar = _addonsBottomBar2['default'];
 exports.DialogContainer = _addonsDialogContainer2['default'];
-exports.Spinner = _addonsSpinner2['default'];
+exports.Spinner = _Spinner2['default'];
 exports.Toast = _addonsToast2['default'];
 exports.ToastContainer = _addonsToastContainer2['default'];
-exports.ToastManager = _addonsToastManagerJs2['default'];
+exports.ToastManager = _addonsToastManager2['default'];
 exports.Radio = _Radio2['default'];
+exports.ProgressBar = _ProgressBar2['default'];
