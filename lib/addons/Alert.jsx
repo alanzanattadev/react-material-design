@@ -1,11 +1,15 @@
 import React from 'react/addons';
+import Radium from 'radium';
 import Card from '../Card';
 import Button from '../Button';
+import Styles from '../styles';
+import AlertManager from './AlertManager';
 
 var Alert = React.createClass({
   getInitialState: function() {
     return {
-      visible: true
+      visible: true,
+      loaded: false
     };
   },
   getDefaultProps: function() {
@@ -15,7 +19,11 @@ var Alert = React.createClass({
     };
   },
   componentDidMount: function() {
-
+    setTimeout(() => {
+      this.setState(React.addons.update(this.state, {
+        loaded: {$set: true}
+      }), 40);
+    })
   },
   componentWillUnmount: function() {
 
@@ -24,6 +32,9 @@ var Alert = React.createClass({
     this.setState(React.addons.update(this.state, {
       visible: {$set: false}
     }));
+    setTimeout(function() {
+      AlertManager.destroy();
+    }, 300);
   },
   onPositiveClick: function() {
     this.hide();
@@ -34,6 +45,21 @@ var Alert = React.createClass({
     this.props.onNegativeClick();
   },
   render: function() {
+    var actions;
+    if (this.props.negative && this.props.positive) {
+      actions = (
+        <Card.Action>
+          <Button ripple colored text={this.props.negative} onClick={this.onNegativeClick}/>
+          <Button ripple colored text={this.props.positive} onClick={this.onPositiveClick}/>
+        </Card.Action>
+      );
+    } else if (this.props.positive) {
+      actions = (
+        <Card.Action right>
+          <Button ripple colored text={this.props.positive} onClick={this.onPositiveClick}/>
+        </Card.Action>
+      );
+    }
     return (
       <div style={{
         backgroundColor: "rgba(0, 0, 0, 0.5)",
@@ -47,21 +73,21 @@ var Alert = React.createClass({
         alignItems: "center",
         flexFlow: "row nowrap",
         zIndex: "10",
+        transition: "all 0.3s " + Styles.Animations.Curve,
+        opacity: this.state.loaded && this.state.visible ? "1" : "0",
         visibility: this.state.visible ? "visible" : "hidden"
       }}>
-        <Card.Card>
-          <Card.Title>
-            {this.props.title}
-          </Card.Title>
-          {this.props.children}
-          <Card.Action>
-            <Button ripple colored text={this.props.negative} onClick={this.onNegativeClick}/>
-            <Button ripple colored text={this.props.positive} onClick={this.onPositiveClick}/>
-          </Card.Action>
-        </Card.Card>
+        <div style={{transition: "all 0.5s " + Styles.Animations.Curve, transform: this.state.loaded && this.state.visible ? "translate3d(0, -20px, 0)" : undefined}}>
+          <Card.Card>
+            <h6 className="mdl-typography--headline" style={{color: "#777", fontSize:"18px", marginLeft:"15px"}}>{this.props.title}</h6>
+            <Card.Title/>
+            {this.props.children}
+            {actions}
+          </Card.Card>
+        </div>
       </div>
     );
   }
 });
 
-export default Alert;
+export default Radium(Alert);

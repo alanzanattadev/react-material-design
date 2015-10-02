@@ -10,6 +10,10 @@ var _reactAddons = require('react/addons');
 
 var _reactAddons2 = _interopRequireDefault(_reactAddons);
 
+var _radium = require('radium');
+
+var _radium2 = _interopRequireDefault(_radium);
+
 var _Card = require('../Card');
 
 var _Card2 = _interopRequireDefault(_Card);
@@ -18,12 +22,21 @@ var _Button = require('../Button');
 
 var _Button2 = _interopRequireDefault(_Button);
 
+var _styles = require('../styles');
+
+var _styles2 = _interopRequireDefault(_styles);
+
+var _AlertManager = require('./AlertManager');
+
+var _AlertManager2 = _interopRequireDefault(_AlertManager);
+
 var Alert = _reactAddons2['default'].createClass({
   displayName: 'Alert',
 
   getInitialState: function getInitialState() {
     return {
-      visible: true
+      visible: true,
+      loaded: false
     };
   },
   getDefaultProps: function getDefaultProps() {
@@ -32,12 +45,23 @@ var Alert = _reactAddons2['default'].createClass({
       onNegativeClick: function onNegativeClick() {}
     };
   },
-  componentDidMount: function componentDidMount() {},
+  componentDidMount: function componentDidMount() {
+    var _this = this;
+
+    setTimeout(function () {
+      _this.setState(_reactAddons2['default'].addons.update(_this.state, {
+        loaded: { $set: true }
+      }), 40);
+    });
+  },
   componentWillUnmount: function componentWillUnmount() {},
   hide: function hide() {
     this.setState(_reactAddons2['default'].addons.update(this.state, {
       visible: { $set: false }
     }));
+    setTimeout(function () {
+      _AlertManager2['default'].destroy();
+    }, 300);
   },
   onPositiveClick: function onPositiveClick() {
     this.hide();
@@ -48,6 +72,21 @@ var Alert = _reactAddons2['default'].createClass({
     this.props.onNegativeClick();
   },
   render: function render() {
+    var actions;
+    if (this.props.negative && this.props.positive) {
+      actions = _reactAddons2['default'].createElement(
+        _Card2['default'].Action,
+        null,
+        _reactAddons2['default'].createElement(_Button2['default'], { ripple: true, colored: true, text: this.props.negative, onClick: this.onNegativeClick }),
+        _reactAddons2['default'].createElement(_Button2['default'], { ripple: true, colored: true, text: this.props.positive, onClick: this.onPositiveClick })
+      );
+    } else if (this.props.positive) {
+      actions = _reactAddons2['default'].createElement(
+        _Card2['default'].Action,
+        { right: true },
+        _reactAddons2['default'].createElement(_Button2['default'], { ripple: true, colored: true, text: this.props.positive, onClick: this.onPositiveClick })
+      );
+    }
     return _reactAddons2['default'].createElement(
       'div',
       { style: {
@@ -62,27 +101,29 @@ var Alert = _reactAddons2['default'].createClass({
           alignItems: "center",
           flexFlow: "row nowrap",
           zIndex: "10",
+          transition: "all 0.3s " + _styles2['default'].Animations.Curve,
+          opacity: this.state.loaded && this.state.visible ? "1" : "0",
           visibility: this.state.visible ? "visible" : "hidden"
         } },
       _reactAddons2['default'].createElement(
-        _Card2['default'].Card,
-        null,
+        'div',
+        { style: { transition: "all 0.5s " + _styles2['default'].Animations.Curve, transform: this.state.loaded && this.state.visible ? "translate3d(0, -20px, 0)" : undefined } },
         _reactAddons2['default'].createElement(
-          _Card2['default'].Title,
+          _Card2['default'].Card,
           null,
-          this.props.title
-        ),
-        this.props.children,
-        _reactAddons2['default'].createElement(
-          _Card2['default'].Action,
-          null,
-          _reactAddons2['default'].createElement(_Button2['default'], { ripple: true, colored: true, text: this.props.negative, onClick: this.onNegativeClick }),
-          _reactAddons2['default'].createElement(_Button2['default'], { ripple: true, colored: true, text: this.props.positive, onClick: this.onPositiveClick })
+          _reactAddons2['default'].createElement(
+            'h6',
+            { className: 'mdl-typography--headline', style: { color: "#777", fontSize: "18px", marginLeft: "15px" } },
+            this.props.title
+          ),
+          _reactAddons2['default'].createElement(_Card2['default'].Title, null),
+          this.props.children,
+          actions
         )
       )
     );
   }
 });
 
-exports['default'] = Alert;
+exports['default'] = (0, _radium2['default'])(Alert);
 module.exports = exports['default'];

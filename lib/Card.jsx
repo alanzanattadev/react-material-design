@@ -174,7 +174,7 @@ var Action = Radium(React.createClass({
         styles.background = "rgba(0, 0, 0, 0.2)";
     }
     return (
-      <div className={classes} style={styles}>
+      <div className={classes} style={[styles, {textAlign: this.props.right ? "right" : "left"}]}>
         {this.props.children}
       </div>
     );

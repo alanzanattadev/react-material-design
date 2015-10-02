@@ -21,12 +21,14 @@ var App = React.createClass({
                             {name: "progress", href:"#/progress"},
                             {name: "textfield", href:"#/textfield"},
                             {name: "spinner", href: "#/spinner"},
-                            {name: "bottombar", href: "#/bottombar"}
+                            {name: "bottombar", href: "#/bottombar"},
+                            {name: "alert", href: "#/alert"}
                           ]}>
           <FlexLayout primary="center" secondary="center" vertical height="80%">
             <RouteHandler/>
           </FlexLayout>
         </NavigationLayout>
+        <DialogContainer/>
       </div>
     );
   }

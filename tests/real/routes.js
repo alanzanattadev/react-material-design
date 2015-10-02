@@ -1,7 +1,7 @@
 import React from 'react/addons';
 import Router, {Route} from 'react-router';
 import App from './App';
-import {Spinner, ProgressBar, TextField, BottomBar, Button} from "../../lib";
+import {Spinner, ProgressBar, TextField, BottomBar, Button, AlertManager, Alert} from "../../lib";
 
 class SpinnerPage extends React.Component {
   render() {
@@ -62,12 +62,24 @@ var BottomBarPage = React.createClass({
   }
 });
 
+var AlertPage = React.createClass({
+  showAlert: function() {
+    AlertManager.create(<Alert title="Do you really want to exit ?" positive="ok"/>);
+  },
+  render: function() {
+    return (
+      <Button onClick={this.showAlert} text="show"/>
+    );
+  }
+});
+
 var routes = (
   <Route handler={App} path="/">
     <Route handler={SpinnerPage} path="spinner"/>
     <Route handler={ProgressBarPage} path="progress"/>
     <Route handler={TextField} path="textfield"/>
     <Route handler={BottomBarPage} path="bottombar"/>
+    <Route handler={AlertPage} path="alert"/>
   </Route>
 );
 

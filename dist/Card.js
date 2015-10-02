@@ -202,7 +202,7 @@ var Action = (0, _radium2['default'])(_react2['default'].createClass({
     }
     return _react2['default'].createElement(
       'div',
-      { className: classes, style: styles },
+      { className: classes, style: [styles, { textAlign: this.props.right ? "right" : "left" }] },
       this.props.children
     );
   }
