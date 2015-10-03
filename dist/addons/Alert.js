@@ -26,9 +26,15 @@ var _styles = require('../styles');
 
 var _styles2 = _interopRequireDefault(_styles);
 
+var _Spinner = require('../Spinner');
+
+var _Spinner2 = _interopRequireDefault(_Spinner);
+
 var _AlertManager = require('./AlertManager');
 
 var _AlertManager2 = _interopRequireDefault(_AlertManager);
+
+var _reactLayoutHelpers = require('react-layout-helpers');
 
 var Alert = _reactAddons2['default'].createClass({
   displayName: 'Alert',
@@ -116,8 +122,11 @@ var Alert = _reactAddons2['default'].createClass({
             { className: 'mdl-typography--headline', style: { color: "#777", fontSize: "18px", marginLeft: "15px" } },
             this.props.title
           ),
-          _reactAddons2['default'].createElement(_Card2['default'].Title, null),
-          this.props.children,
+          this.props.children || (this.props.loading ? [_reactAddons2['default'].createElement(
+            _reactLayoutHelpers.FlexLayout,
+            { primary: 'center', secondary: 'center', vertical: true, flex: '2', key: 'flex2' },
+            _reactAddons2['default'].createElement(_Spinner2['default'], { active: true })
+          ), _reactAddons2['default'].createElement(_reactLayoutHelpers.FlexLayout, { flex: '1', key: 'flex1' })] : undefined) || _reactAddons2['default'].createElement(_reactLayoutHelpers.FlexLayout, { flex: '1' }),
           actions
         )
       )

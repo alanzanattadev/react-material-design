@@ -3,7 +3,9 @@ import Radium from 'radium';
 import Card from '../Card';
 import Button from '../Button';
 import Styles from '../styles';
+import Spinner from '../Spinner';
 import AlertManager from './AlertManager';
+import {FlexLayout} from 'react-layout-helpers';
 
 var Alert = React.createClass({
   getInitialState: function() {
@@ -80,8 +82,12 @@ var Alert = React.createClass({
         <div style={{transition: "all 0.5s " + Styles.Animations.Curve, transform: this.state.loaded && this.state.visible ? "translate3d(0, -20px, 0)" : undefined}}>
           <Card.Card>
             <h6 className="mdl-typography--headline" style={{color: "#777", fontSize:"18px", marginLeft:"15px"}}>{this.props.title}</h6>
-            <Card.Title/>
-            {this.props.children}
+            {this.props.children || (this.props.loading ? (
+              [(<FlexLayout primary="center" secondary="center" vertical flex="2" key="flex2">
+                <Spinner active/>
+              </FlexLayout>),
+              (<FlexLayout flex="1" key="flex1"/>)]
+            ) : undefined) || <FlexLayout flex="1"/>}
             {actions}
           </Card.Card>
         </div>

@@ -2,6 +2,7 @@ import React from 'react/addons';
 import Router, {Route} from 'react-router';
 import App from './App';
 import {Spinner, ProgressBar, TextField, BottomBar, Button, AlertManager, Alert} from "../../lib";
+import {FlexLayout} from 'react-layout-helpers'
 
 class SpinnerPage extends React.Component {
   render() {
@@ -66,9 +67,17 @@ var AlertPage = React.createClass({
   showAlert: function() {
     AlertManager.create(<Alert title="Do you really want to exit ?" positive="ok"/>);
   },
+  showAlertWithSpinner: function() {
+    AlertManager.create(
+      <Alert title="Do you really want to exit ?" loading/>
+    );
+  },
   render: function() {
     return (
-      <Button onClick={this.showAlert} text="show"/>
+      <div>
+        <Button onClick={this.showAlert} text="show"/>
+        <Button onClick={this.showAlertWithSpinner} text="show spinner"/>
+      </div>
     );
   }
 });
