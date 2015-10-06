@@ -50,7 +50,7 @@ var Alert = React.createClass({
     var actions;
     if (this.props.negative && this.props.positive) {
       actions = (
-        <Card.Action>
+        <Card.Action right>
           <Button ripple colored text={this.props.negative} onClick={this.onNegativeClick}/>
           <Button ripple colored text={this.props.positive} onClick={this.onPositiveClick}/>
         </Card.Action>
