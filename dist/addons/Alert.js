@@ -82,7 +82,7 @@ var Alert = _reactAddons2['default'].createClass({
     if (this.props.negative && this.props.positive) {
       actions = _reactAddons2['default'].createElement(
         _Card2['default'].Action,
-        null,
+        { right: true },
         _reactAddons2['default'].createElement(_Button2['default'], { ripple: true, colored: true, text: this.props.negative, onClick: this.onNegativeClick }),
         _reactAddons2['default'].createElement(_Button2['default'], { ripple: true, colored: true, text: this.props.positive, onClick: this.onPositiveClick })
       );
