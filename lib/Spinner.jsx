@@ -11,7 +11,7 @@ var Spinner = React.createClass({
     };
   },
   componentDidMount: function() {
-    componentHandler.upgradeElement(React.findDOMNode(this.refs.spinner));
+    componentHandler.upgradeElement(this.refs.spinner);
   },
   componentWillUnmount: function() {
 

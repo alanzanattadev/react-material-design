@@ -13,7 +13,7 @@ var Card = Radium(React.createClass({
     };
   },
   componentDidMount: function() {
-    componentHandler.upgradeElement(React.findDOMNode(this.refs.card));
+    componentHandler.upgradeElement(this.refs.card);
     componentHandler.upgradeDom();
   },
   componentWillUnmount: function() {

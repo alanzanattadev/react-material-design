@@ -34,7 +34,7 @@ var Button = _react2['default'].createClass({
     };
   },
   componentDidMount: function componentDidMount() {
-    componentHandler.upgradeElement(_react2['default'].findDOMNode(this.refs.button));
+    componentHandler.upgradeElement(this.refs.button);
   },
   componentWillUnmount: function componentWillUnmount() {},
   _getButtonClasses: function _getButtonClasses() {

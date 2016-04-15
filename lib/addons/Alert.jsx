@@ -1,4 +1,5 @@
-import React from 'react/addons';
+import React from 'react';
+import update from 'react-addons-update';
 import Radium from 'radium';
 import Card from '../Card';
 import Button from '../Button';
@@ -22,7 +23,7 @@ var Alert = React.createClass({
   },
   componentDidMount: function() {
     setTimeout(() => {
-      this.setState(React.addons.update(this.state, {
+      this.setState(update(this.state, {
         loaded: {$set: true}
       }), 40);
     })
@@ -31,7 +32,7 @@ var Alert = React.createClass({
 
   },
   hide: function() {
-    this.setState(React.addons.update(this.state, {
+    this.setState(update(this.state, {
       visible: {$set: false}
     }));
     setTimeout(function() {

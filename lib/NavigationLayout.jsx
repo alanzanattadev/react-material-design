@@ -18,7 +18,7 @@ var NavigationLayout = React.createClass({
     };
   },
   componentDidMount: function() {
-    componentHandler.upgradeElement(React.findDOMNode(this.refs.layout));
+    componentHandler.upgradeElement(this.refs.layout);
   },
   componentWillUnmount: function() {
 

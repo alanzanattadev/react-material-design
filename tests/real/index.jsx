@@ -1,7 +1,6 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import Router from 'react-router';
-import routes from './routes';
+import Root from './router';
 
-Router.run(routes, Router.HashLocation, function(Root) {
-  React.render(<Root/>, document.body);
-});
+ReactDOM.render(Root, document.body);

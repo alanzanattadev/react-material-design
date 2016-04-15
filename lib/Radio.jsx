@@ -12,7 +12,7 @@ var Radio = React.createClass({
     };
   },
   componentDidMount: function() {
-    componentHandler.upgradeElement(React.findDOMNode(this.refs.label));
+    componentHandler.upgradeElement(this.refs.label);
   },
   componentWillUnmount: function() {
 

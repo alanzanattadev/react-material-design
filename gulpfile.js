@@ -53,12 +53,13 @@ gulp.task('webpack:build', function(callback) {
 gulp.task('webpack:serve', function() {
   var compiler = webpack(webpackConfig);
   var server = new webpackServer(compiler, {
-    contentBase: "www/"
+    contentBase: "www/",
+    historyApiFallback: true,
   });
   server.listen(7080, 'localhost', function(err) {
     if (err)
       throw new gutil.PluginError("webpack-dev-server", err);
-    gutil.log("[webpack-dev-server]", "http://localhost:8080/webpack-dev-server/index.html");
+    gutil.log("[webpack-dev-server]", "http://localhost:7080/webpack-dev-server/");
   });
 });
 
@@ -91,7 +92,7 @@ gulp.task('test-build:watch', ['sass:watch'], function() {
   gulp.watch('tests/real/index.html', ['test-real:build']);
 });
 
-gulp.task('build', ["components:build", "npm:build"]);
+gulp.task('build', ["components:build", "npm:build", "sass", "test-real:build", "webpack:build"]);
 gulp.task('watch:build', ['components:watch', "npm:watch"]);
 gulp.task('watch:webpack', ['webpack:serve']);
 gulp.task('watch', ['watch:build', 'watch:webpack', 'test-build:watch']);

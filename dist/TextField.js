@@ -27,7 +27,7 @@ var TextField = _react2['default'].createClass({
     };
   },
   componentDidMount: function componentDidMount() {
-    componentHandler.upgradeElement(_react2['default'].findDOMNode(this.refs.div));
+    componentHandler.upgradeElement(this.refs.div);
   },
   componentWillUnmount: function componentWillUnmount() {},
   _getDivClasses: function _getDivClasses() {

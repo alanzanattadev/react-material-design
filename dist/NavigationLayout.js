@@ -39,7 +39,7 @@ var NavigationLayout = _react2['default'].createClass({
     };
   },
   componentDidMount: function componentDidMount() {
-    componentHandler.upgradeElement(_react2['default'].findDOMNode(this.refs.layout));
+    componentHandler.upgradeElement(this.refs.layout);
   },
   componentWillUnmount: function componentWillUnmount() {},
   render: function render() {

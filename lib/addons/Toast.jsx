@@ -1,4 +1,5 @@
-import React from 'react/addons';
+import React from 'react';
+import update from 'react-addons-update';
 import classNames from 'classnames';
 import Button from '../Button';
 import Radium from 'radium';
@@ -18,7 +19,7 @@ var Toast = React.createClass({
   componentDidMount: function() {
     this.props.onCreated();
     setTimeout(() => {
-      this.setState(React.addons.update(this.state, {
+      this.setState(update(this.state, {
         visible: {$set: true}
       }));
     }, 10);
@@ -31,7 +32,7 @@ var Toast = React.createClass({
     return setTimeout(this.hide, 4000);
   },
   hide: function() {
-    this.setState(React.addons.update(this.state, {
+    this.setState(update(this.state, {
       visible: {$set: false}
     }));
     this.props.onClose();

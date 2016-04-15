@@ -24,7 +24,7 @@ var Spinner = _react2['default'].createClass({
     return {};
   },
   componentDidMount: function componentDidMount() {
-    componentHandler.upgradeElement(_react2['default'].findDOMNode(this.refs.spinner));
+    componentHandler.upgradeElement(this.refs.spinner);
   },
   componentWillUnmount: function componentWillUnmount() {},
   _getSpinnerStyle: function _getSpinnerStyle() {

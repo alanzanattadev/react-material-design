@@ -13,5 +13,9 @@ module.exports = {
   },
   resolve: {
     extensions: ['', '.js', '.jsx']
+  },
+  devtool: "eval-source-map",
+  historyApiFallback: {
+    index: path.join(__dirname, 'www/')
   }
 };

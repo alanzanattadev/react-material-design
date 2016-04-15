@@ -6,9 +6,13 @@ Object.defineProperty(exports, '__esModule', {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-var _reactAddons = require('react/addons');
+var _react = require('react');
 
-var _reactAddons2 = _interopRequireDefault(_reactAddons);
+var _react2 = _interopRequireDefault(_react);
+
+var _reactAddonsUpdate = require('react-addons-update');
+
+var _reactAddonsUpdate2 = _interopRequireDefault(_reactAddonsUpdate);
 
 var _classnames = require('classnames');
 
@@ -22,7 +26,7 @@ var _radium = require('radium');
 
 var _radium2 = _interopRequireDefault(_radium);
 
-var Toast = _reactAddons2['default'].createClass({
+var Toast = _react2['default'].createClass({
   displayName: 'Toast',
 
   getInitialState: function getInitialState() {
@@ -41,7 +45,7 @@ var Toast = _reactAddons2['default'].createClass({
 
     this.props.onCreated();
     setTimeout(function () {
-      _this.setState(_reactAddons2['default'].addons.update(_this.state, {
+      _this.setState((0, _reactAddonsUpdate2['default'])(_this.state, {
         visible: { $set: true }
       }));
     }, 10);
@@ -54,13 +58,13 @@ var Toast = _reactAddons2['default'].createClass({
     return setTimeout(this.hide, 4000);
   },
   hide: function hide() {
-    this.setState(_reactAddons2['default'].addons.update(this.state, {
+    this.setState((0, _reactAddonsUpdate2['default'])(this.state, {
       visible: { $set: false }
     }));
     this.props.onClose();
   },
   render: function render() {
-    return _reactAddons2['default'].createElement(
+    return _react2['default'].createElement(
       'div',
       { style: {
           minHeight: "48px",
@@ -71,7 +75,7 @@ var Toast = _reactAddons2['default'].createClass({
           left: "0",
           zIndex: "10"
         } },
-      _reactAddons2['default'].createElement(
+      _react2['default'].createElement(
         'div',
         { style: {
             minHeight: "48px",
@@ -94,14 +98,14 @@ var Toast = _reactAddons2['default'].createClass({
             zIndex: "10"
           }
         },
-        _reactAddons2['default'].createElement(
+        _react2['default'].createElement(
           'span',
           { style: { marginLeft: "25px" } },
           this.props.text
         ),
-        _reactAddons2['default'].createElement('span', { style: { flexGrow: "1" } }),
-        _reactAddons2['default'].createElement(_Button2['default'], { accent: true, text: this.props.button ? this.props.button.toUpperCase() : "", onClick: this.props.onClick, visible: this.props.button }),
-        _reactAddons2['default'].createElement('span', { style: { width: "15px", flexBasis: "15px", flexGrow: "0" } })
+        _react2['default'].createElement('span', { style: { flexGrow: "1" } }),
+        _react2['default'].createElement(_Button2['default'], { accent: true, text: this.props.button ? this.props.button.toUpperCase() : "", onClick: this.props.onClick, visible: this.props.button }),
+        _react2['default'].createElement('span', { style: { width: "15px", flexBasis: "15px", flexGrow: "0" } })
       )
     );
   }

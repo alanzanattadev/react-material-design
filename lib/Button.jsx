@@ -19,7 +19,7 @@ var Button = React.createClass({
     };
   },
   componentDidMount: function() {
-    componentHandler.upgradeElement(React.findDOMNode(this.refs.button));
+    componentHandler.upgradeElement(this.refs.button);
   },
   componentWillUnmount: function() {
 

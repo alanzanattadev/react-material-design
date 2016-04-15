@@ -6,9 +6,13 @@ Object.defineProperty(exports, '__esModule', {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-var _reactAddons = require('react/addons');
+var _react = require('react');
 
-var _reactAddons2 = _interopRequireDefault(_reactAddons);
+var _react2 = _interopRequireDefault(_react);
+
+var _reactAddonsUpdate = require('react-addons-update');
+
+var _reactAddonsUpdate2 = _interopRequireDefault(_reactAddonsUpdate);
 
 var _radium = require('radium');
 
@@ -36,7 +40,7 @@ var _AlertManager2 = _interopRequireDefault(_AlertManager);
 
 var _reactLayoutHelpers = require('react-layout-helpers');
 
-var Alert = _reactAddons2['default'].createClass({
+var Alert = _react2['default'].createClass({
   displayName: 'Alert',
 
   getInitialState: function getInitialState() {
@@ -55,14 +59,14 @@ var Alert = _reactAddons2['default'].createClass({
     var _this = this;
 
     setTimeout(function () {
-      _this.setState(_reactAddons2['default'].addons.update(_this.state, {
+      _this.setState((0, _reactAddonsUpdate2['default'])(_this.state, {
         loaded: { $set: true }
       }), 40);
     });
   },
   componentWillUnmount: function componentWillUnmount() {},
   hide: function hide() {
-    this.setState(_reactAddons2['default'].addons.update(this.state, {
+    this.setState((0, _reactAddonsUpdate2['default'])(this.state, {
       visible: { $set: false }
     }));
     setTimeout(function () {
@@ -80,20 +84,20 @@ var Alert = _reactAddons2['default'].createClass({
   render: function render() {
     var actions;
     if (this.props.negative && this.props.positive) {
-      actions = _reactAddons2['default'].createElement(
+      actions = _react2['default'].createElement(
         _Card2['default'].Action,
         { right: true },
-        _reactAddons2['default'].createElement(_Button2['default'], { ripple: true, colored: true, text: this.props.negative, onClick: this.onNegativeClick }),
-        _reactAddons2['default'].createElement(_Button2['default'], { ripple: true, colored: true, text: this.props.positive, onClick: this.onPositiveClick })
+        _react2['default'].createElement(_Button2['default'], { ripple: true, colored: true, text: this.props.negative, onClick: this.onNegativeClick }),
+        _react2['default'].createElement(_Button2['default'], { ripple: true, colored: true, text: this.props.positive, onClick: this.onPositiveClick })
       );
     } else if (this.props.positive) {
-      actions = _reactAddons2['default'].createElement(
+      actions = _react2['default'].createElement(
         _Card2['default'].Action,
         { right: true },
-        _reactAddons2['default'].createElement(_Button2['default'], { ripple: true, colored: true, text: this.props.positive, onClick: this.onPositiveClick })
+        _react2['default'].createElement(_Button2['default'], { ripple: true, colored: true, text: this.props.positive, onClick: this.onPositiveClick })
       );
     }
-    return _reactAddons2['default'].createElement(
+    return _react2['default'].createElement(
       'div',
       { style: {
           backgroundColor: "rgba(0, 0, 0, 0.5)",
@@ -111,22 +115,22 @@ var Alert = _reactAddons2['default'].createClass({
           opacity: this.state.loaded && this.state.visible ? "1" : "0",
           visibility: this.state.visible ? "visible" : "hidden"
         } },
-      _reactAddons2['default'].createElement(
+      _react2['default'].createElement(
         'div',
         { style: { transition: "all 0.5s " + _styles2['default'].Animations.Curve, transform: this.state.loaded && this.state.visible ? "translate3d(0, -20px, 0)" : undefined } },
-        _reactAddons2['default'].createElement(
+        _react2['default'].createElement(
           _Card2['default'].Card,
           null,
-          _reactAddons2['default'].createElement(
+          _react2['default'].createElement(
             'h6',
             { className: 'mdl-typography--headline', style: { color: "#777", fontSize: "18px", marginLeft: "15px" } },
             this.props.title
           ),
-          this.props.children || (this.props.loading ? [_reactAddons2['default'].createElement(
+          this.props.children || (this.props.loading ? [_react2['default'].createElement(
             _reactLayoutHelpers.FlexLayout,
             { primary: 'center', secondary: 'center', vertical: true, flex: '2', key: 'flex2' },
-            _reactAddons2['default'].createElement(_Spinner2['default'], { active: true })
-          ), _reactAddons2['default'].createElement(_reactLayoutHelpers.FlexLayout, { flex: '1', key: 'flex1' })] : undefined) || _reactAddons2['default'].createElement(_reactLayoutHelpers.FlexLayout, { flex: '1' }),
+            _react2['default'].createElement(_Spinner2['default'], { active: true })
+          ), _react2['default'].createElement(_reactLayoutHelpers.FlexLayout, { flex: '1', key: 'flex1' })] : undefined) || _react2['default'].createElement(_reactLayoutHelpers.FlexLayout, { flex: '1' }),
           actions
         )
       )

@@ -12,7 +12,7 @@ var TextField = React.createClass({
     };
   },
   componentDidMount: function() {
-    componentHandler.upgradeElement(React.findDOMNode(this.refs.div));
+    componentHandler.upgradeElement(this.refs.div);
   },
   componentWillUnmount: function() {
 

@@ -12,7 +12,7 @@ var ProgressBar = React.createClass({
     };
   },
   componentDidMount: function() {
-    componentHandler.upgradeElement(React.findDOMNode(this.refs.bar));
+    componentHandler.upgradeElement(this.refs.bar);
     this.setProgress();
   },
   componentDidUpdate: function() {

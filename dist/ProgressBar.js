@@ -27,7 +27,7 @@ var ProgressBar = _react2['default'].createClass({
     };
   },
   componentDidMount: function componentDidMount() {
-    componentHandler.upgradeElement(_react2['default'].findDOMNode(this.refs.bar));
+    componentHandler.upgradeElement(this.refs.bar);
     this.setProgress();
   },
   componentDidUpdate: function componentDidUpdate() {

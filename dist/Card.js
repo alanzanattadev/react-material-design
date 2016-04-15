@@ -32,7 +32,7 @@ var Card = (0, _radium2['default'])(_react2['default'].createClass({
     };
   },
   componentDidMount: function componentDidMount() {
-    componentHandler.upgradeElement(_react2['default'].findDOMNode(this.refs.card));
+    componentHandler.upgradeElement(this.refs.card);
     componentHandler.upgradeDom();
   },
   componentWillUnmount: function componentWillUnmount() {},
