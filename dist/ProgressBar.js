@@ -34,10 +34,10 @@ var ProgressBar = _react2['default'].createClass({
     this.setProgress();
   },
   componentWillUnmount: function componentWillUnmount() {
-    _react2['default'].findDOMNode(this.refs.bar).removeEventListener('mdl-componentupgraded', this.setProgress);
+    this.refs.bar.removeEventListener('mdl-componentupgraded', this.setProgress);
   },
   setProgress: function setProgress() {
-    var progressBar = _react2['default'].findDOMNode(this.refs.bar);
+    var progressBar = this.refs.bar;
     if (this.props.progress) {
       progressBar.MaterialProgress.setProgress(80);
       progressBar.MaterialProgress.setProgress(parseInt(this.props.progress));

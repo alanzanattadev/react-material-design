@@ -19,10 +19,10 @@ var ProgressBar = React.createClass({
     this.setProgress();
   },
   componentWillUnmount: function() {
-    React.findDOMNode(this.refs.bar).removeEventListener('mdl-componentupgraded', this.setProgress);
+    this.refs.bar.removeEventListener('mdl-componentupgraded', this.setProgress);
   },
   setProgress: function() {
-    var progressBar = React.findDOMNode(this.refs.bar)
+    var progressBar = this.refs.bar;
     if (this.props.progress) {
       progressBar.MaterialProgress.setProgress(80);
       progressBar.MaterialProgress.setProgress(parseInt(this.props.progress));
